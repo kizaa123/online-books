@@ -1,3 +1,196 @@
+            /* Slide out right/left for fiction section on scroll down */
+            @keyframes slideOutRightMobile {
+              from {
+                opacity: 1;
+                transform: translateX(0);
+              }
+              to {
+                opacity: 0;
+                transform: translateX(100vw);
+              }
+            }
+            @keyframes slideOutLeftMobile {
+              from {
+                opacity: 1;
+                transform: translateX(0);
+              }
+              to {
+                opacity: 0;
+                transform: translateX(-100vw);
+              }
+            }
+            .right.slide-out {
+              animation: slideOutRightMobile 0.7s forwards;
+            }
+            .left.slide-out {
+              animation: slideOutLeftMobile 0.7s forwards;
+            }
+/* Full page fade-in animation on load */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+body {
+  animation: pageFadeIn 1.2s ease-out;
+}
+/* Additional scroll-triggered animations */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+}
+.scroll-animate-scale.visible {
+  animation: scaleUp 0.7s forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.scroll-animate-rotate {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+}
+.scroll-animate-rotate.visible {
+  animation: rotateIn 0.8s forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(60px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-10px);
+  }
+  80% {
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.scroll-animate-bounce {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+}
+.scroll-animate-bounce.visible {
+  animation: bounceIn 1s forwards;
+}
+/* Scroll-triggered left/right/circle animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes circlePath {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+    border-radius: 50%;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(40px, -40px) scale(1.1);
+    border-radius: 50%;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    border-radius: 50%;
+  }
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+}
+.scroll-animate-left.visible {
+  animation: slideInLeft 0.8s forwards;
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+}
+.scroll-animate-right.visible {
+  animation: slideInRight 0.8s forwards;
+}
+
+.scroll-animate-circle {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+  border-radius: 50%;
+}
+.scroll-animate-circle.visible {
+  animation: circlePath 1.2s forwards;
+}
+/* Scroll-triggered fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.scroll-animate.visible {
+  animation: fadeInUp 0.8s forwards;
+}
 *{
     margin: 0;
     padding:0 ;
@@ -7,7 +200,7 @@ html,
 body{
      font-family: "Inter", sans-serif;
      background-color: rgba(236, 237, 238, 0.849);
-     
+     scroll-behavior: smooth;
 }
 nav{
     display: flex;
@@ -39,8 +232,8 @@ li a{
     text-decoration: none;
     text-transform: uppercase;
     margin-left: 50px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 400;
     position: relative;
     color: rgb(238, 77, 14);
 }
@@ -419,6 +612,7 @@ border-radius: 2rem;
     margin-right: 45px;
     animation: slide 30s infinite;
     cursor: pointer;
+    margin-top: 3rem;
  }
   .fiction .left .product img{
     width:100%;
@@ -742,12 +936,100 @@ border-radius: 2rem;
 
 
          @media screen and (max-width:768px) {
+            @keyframes slideInLeftMobile {
+              from {
+                opacity: 0;
+                transform: translateX(-60px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+            @keyframes slideInRightMobile {
+              from {
+                opacity: 0;
+                transform: translateX(60px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+            @keyframes circlePathMobile {
+              0% {
+                opacity: 0;
+                transform: translate(0, 0) scale(0.5);
+                border-radius: 50%;
+              }
+              50% {
+                opacity: 0.7;
+                transform: translate(20px, -20px) scale(1.1);
+                border-radius: 50%;
+              }
+              100% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+                border-radius: 50%;
+              }
+            }
+            .scroll-animate-left {
+              opacity: 0;
+              transition: opacity 0.6s, transform 0.6s;
+            }
+            .scroll-animate-left.visible {
+              animation: slideInLeftMobile 0.8s forwards;
+            }
+            .scroll-animate-right {
+              opacity: 0;
+              transition: opacity 0.6s, transform 0.6s;
+            }
+            .scroll-animate-right.visible {
+              animation: slideInRightMobile 0.8s forwards;
+            }
+            .scroll-animate-circle {
+              opacity: 0;
+              transition: opacity 0.6s, transform 0.6s;
+              border-radius: 50%;
+            }
+            .scroll-animate-circle.visible {
+              animation: circlePathMobile 1.2s forwards;
+            }
+          
+            .self-help .cover .books {
+                width: 150px;
+                margin-left: 7px;
+                padding: 0;
+            }
+            .self-help .cover .books img {
+                width:150px;
+            }
+            .self-help .cover .books .sell p {
+                font-size: 12px;
+                margin-top: 4px;
+            }
+            .self-help .cover .books .sell .author {
+                font-size: 10px;
+                width: 120px;
+            }
+            .self-help .cover .books .sell {
+                padding: 0 0.1px;
+            }
+            .self-help .sell .btn {
+                width: 90px;
+                font-size: 12px;
+                height: 22px;
+                border-radius: 4px;
+            }
 
-
+            html, body {
+                overflow-x: hidden !important;
+                width: 100%;
+            }
             nav{
                height: 80px;
                padding: 0 5px;
-               z-index: 1000;
+               z-index: 9999;
             }
             *{
                padding: 0;
@@ -802,13 +1084,18 @@ border-radius: 2rem;
             .content{
                margin-top: 10px;
                width: 100%;
+               max-width: 100vw;
+               overflow-x: hidden;
             }
             .content h3{
                font-size: 25px;
             }
             .content .cards{
-               justify-content:auto;
-
+               justify-content: flex-start;
+               flex-wrap: wrap;
+               width: 100%;
+               max-width: 100vw;
+               overflow-x: hidden;
             }
             .content .cards .card{
                width: 200px;
@@ -818,6 +1105,7 @@ border-radius: 2rem;
                display: flex;
                border: 0.5px solid orangered;
                box-shadow: none;
+               margin-left: 0.5rem;
             }
             .content .cards .card img{
                width: 55%;
@@ -849,20 +1137,19 @@ border-radius: 2rem;
                margin-top:5px ;
                text-align: center;
              }
-             .adver{
+            .adver{
                justify-content: center;
                align-items: center;
                width: 100%;
+               max-width: 100vw;
                height: fit-content;
                margin-top: 2rem;
                overflow: hidden;
                border-radius: 10px;
-                animation: appear linear;
+               animation: appear linear;
                animation-timeline: view();
-               animation-range: entry 0
-               cover 30%;
-
-             }
+               animation-range: entry 0 cover 30%;
+            }
              .adver img{
                width:195px;
              }
@@ -902,17 +1189,20 @@ border-radius: 2rem;
                justify-content: center;
                height: fit-content;
                flex-direction: column;
+               width: 100%;
+               max-width: 100vw;
+               overflow-x: hidden;
+               margin-top: 6rem;
               }
               .fiction .right{
                height: 50px;
                width: 100%;
+               max-width: 100vw;
                text-align: start;
                padding: 0 10px;
-                animation: appear linear;
+               animation: appear linear;
                animation-timeline: view();
-               animation-range: entry 0
-               cover 30%;
-
+               animation-range: entry 0 cover 30%;
               }
               .right h6{
                font-size: 25px;
@@ -941,12 +1231,13 @@ border-radius: 2rem;
               }
               .fiction .left{
                width: 100%;
+               max-width: 100vw;
                margin-top: 20rem;
-                 padding: 0 5px;
-                  animation: appear linear;
+               padding: 0 5px;
+               animation: appear linear;
                animation-timeline: view();
-               animation-range: entry 0
-               cover 30%;
+               animation-range: entry 0 cover 30%;
+               overflow-x: auto;
               }
                .left .product{
                width: 200px;
@@ -979,14 +1270,15 @@ border-radius: 2rem;
                }
                .wrap{
                   width: 100%;
+                  max-width: 100vw;
                   justify-content: center;
                   margin-top: 2rem;
                   align-items: center;
                   display: flex;
-                   animation: appear linear;
-               animation-timeline: view();
-               animation-range: entry 0
-               cover 30%;
+                  animation: appear linear;
+                  animation-timeline: view();
+                  animation-range: entry 0 cover 30%;
+                  overflow-x: hidden;
                }
                .wrap p button{
                   font-size: 12px;
@@ -1018,6 +1310,8 @@ border-radius: 2rem;
                   overflow-x: auto;
                   white-space:nowrap;
                   flex-direction: column;
+                  width: 100%;
+                  max-width: 100vw;
                }
                 .cover .books img{
                   width: 200px;
@@ -1054,20 +1348,21 @@ border-radius: 2rem;
                   padding: 0;
                   margin-left: 0;
                   width: 100%;
+                  max-width: 100vw;
                   height: 100%;
                   align-items: center;
                   margin-top: 3rem;
+                  overflow-x: hidden;
                  }
                  .delivery, .payment, .suport{
                   width:100%;
+                  max-width: 100vw;
                   padding-right: 0px;
                   height: 60px;
                   height: fit-content;
                   margin-right:0;
                   justify-content:center;
                   padding-left: 0;
-               
-
                  }
                  .delivery i, .payment i, .suport i{
                   font-size: 30px;
@@ -1079,6 +1374,7 @@ border-radius: 2rem;
                   font-size: 14px;
                   margin-right: 0;
                   width: 100%;
+                  max-width: 100vw;
                  }
                  .payment p span, .delivery p span, .suport p span{
                   font-size: 12px;
@@ -1088,10 +1384,12 @@ border-radius: 2rem;
                  .formation{
                   margin-top: 3rem;
                   width: 100%;
+                  max-width: 100vw;
                   margin-left: 0;
                   padding: 10px;
                   display: flex;
                   flex-direction: column-reverse;
+                  overflow-x: hidden;
                  }
                  .contact h3, h4, span {
                   font-size: 14px;
@@ -1103,10 +1401,13 @@ border-radius: 2rem;
                   display: grid;
                   justify-self: center;
                   margin-top: 2rem;
+                  width: 100%;
+                  max-width: 100vw;
+                  overflow-x: hidden;
                  }
                  .message{
                   width: 100%;
-
+                  max-width: 100vw;
                  }
                  .message label{
                   font-size: 15px;
