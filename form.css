@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Inter", sans-serif;
+    background-image: url(loin.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
+}
+
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 200px;
+    backdrop-filter: brightness(40%);
+}
+h1{
+    font-size: 35px;
+    color:rgb(224, 149, 9);
+    margin-left: 5rem;
+    
+}
+.left{
+    width: 40%;
+    height: 100%;
+    padding: 0 20px;
+    align-content: center;
+}
+.left p{
+    width: 500px;
+    font-size: 20px;
+    color: whitesmoke;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 270;
+}
+h2{
+    margin-top: 4px;
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color:whitesmoke;
+     
+}
+span{
+    font-style: italic;
+    font-size: 30px;
+    color: orange;
+}
+.left button{
+    width: 130px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: whitesmoke;
+    background-color: orange;
+    border: none;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    border-radius: 7px;
+    text-align: center;
+}
+.left button:hover{
+color: black;
+background-color: orangered;
+}
+
+.wrap{
+    position: relative;
+     width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    margin-top: 4rem;
+    backdrop-filter: brightness(0%);
+    border: 0.2px solid orange;
+    padding: 5px 10px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+form{
+    width:100%;
+    display: flex;
+    flex-direction: column;  
+}
+
+form h4{
+    justify-self: center;
+    align-self:center;
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: rgb(255, 89, 28);
+}
+.user, .password, .rem{
+    position: relative;
+    margin-top: 1rem;
+}
+ label{
+    position:absolute;
+    bottom:15%;
+    left: 4%;
+    color: orange;
+    font-weight: 540;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.3s all;
+}
+input{
+    position: relative;
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    outline:none;
+    border-style: none;
+    border-bottom: 3px solid whitesmoke;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: start;
+    padding: 0 20px;
+    color:orange;
+    letter-spacing: 1px;
+}
+i{
+    position: absolute;
+    font-size: 25px;
+    color: orangered;
+    font-weight: 600;
+    right: 5%;
+    bottom: 15%;
+
+}
+
+ .password input:focus ~ label,
+ .password input:valid ~ label{
+    transform: translateY(-28px);
+    transition: 0.5s ease-in-out;
+    font-size:15px;
+     color: rgb(235, 222, 206);
+}
+
+.user input:focus ~ label,
+.user input:valid ~ label{
+    transform: translateY(-28px);
+    transition: 0.5s linear;
+    font-size:15px;
+     color: rgb(235, 222, 206);
+}
+.rem input{
+    width: 30px;
+    left: 45%;
+}
+.rem{
+    margin-top: 1rem;
+}
+.rem input[type ="checkbox"]{
+    width: 30px;
+    margin-left: 2rem;
+}
+ .accept button{
+    background-color:orange;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: 750;
+    border: none;
+    color: white;
+    margin-top: 1.5rem;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+.accept button:hover{
+    color:black ;
+    background-color: rgb(214, 69, 16);
+}
+
+
+.accept p{
+    color: rgb(255, 255, 255);
+    align-self: center;
+    justify-self: center;
+    margin-top: 1rem;
+}
+.accept p a{
+    text-decoration: none;
+    font-size: 15px;
+    color: red;
+    font-weight: 600;
+    margin-left: 7px;
+}
+.accept{
+    border-radius: 0 0 25px 25px;
+}
+.accept i{
+    color:orangered;
+    align-self: center;
+    margin-left:2rem ;
+    bottom: 0%;
+    position: relative;
+    font-size: 25px;
+
+}
+
+
+
+ @media screen and (max-width:768px) {
+    .main{
+        flex-direction: column;
+        justify-content: center;
+        padding:2px;
+    }
+    .left{
+        width: 100%;
+        align-self: center;
+    }
+    .left p{
+        width: 100%;
+        padding:0px 5px;
+        margin-top: 0.5rem;
+        text-align: none;
+        font-size: 16px;
+    }
+    h1{
+        font-size: 30PX;
+        margin-left: 0;
+        justify-self: center;
+        margin-top: 7rem;
+    }
+       h2{
+        font-size: 40px;
+        justify-self: center;
+       } 
+       span{
+        font-size: 25px;
+       }
+       .left button{
+        justify-self: center;
+        width: 150px;
+        height: 40px;
+        margin-left: 5rem;
+        margin-top: 2rem;
+       }
+       .wrap{
+        width: 80%;
+       }
+    
+ }
+
+
+
