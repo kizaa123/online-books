@@ -1109,7 +1109,7 @@ border-radius: 2rem;
             }
             .content .cards .card img{
                width: 55%;
-               z-index: 1;
+               
             
             }
             .content .cards .card .overview{
@@ -1122,6 +1122,7 @@ border-radius: 2rem;
                overflow: auto;
                padding: 0;
                color: rgb(49, 45, 45);
+                        z-index:-1;
 
 
             }
